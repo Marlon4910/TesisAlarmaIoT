@@ -46,7 +46,7 @@ Si todo está configurado correctamente, deberías ver tu nueva aplicación ejec
 
 Esta es una forma de ejecutar tu app — también puedes hacerlo directamente desde Android Studio o Xcode, respectivamente.
 
-## Paso 3: Ya puedes modificar la apliación
+## Paso 3: Ya puedes modificar la aplicación
 
 Ahora que has ejecutado la aplicación con éxito, vamos a modificarla.
 
