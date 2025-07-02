@@ -2,7 +2,7 @@ import firebase_admin
 from firebase_admin import credentials, messaging
 
 # Ruta al archivo JSON de credenciales
-SERVICE_ACCOUNT_FILE = "alarma-xibernetiq-2ad8b9ef28da.json"
+SERVICE_ACCOUNT_FILE = ".json"
 
 # Inicializa la aplicación Firebase Admin
 try:

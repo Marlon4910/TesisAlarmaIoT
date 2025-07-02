@@ -152,7 +152,7 @@ def modo_ad_hoc():
         conn.close()
 
 def actualizar_url(uid):
-    firebase_url = f'https://alarma-xibernetiq-default-rtdb.firebaseio.com/{uid}/Configuracion/IPCPU.json'
+    firebase_url = f'https://URL/{uid}/Configuracion/IPCPU.json'
     return firebase_url;
 
 def leer_ip_desde_firebase(firebase_url):

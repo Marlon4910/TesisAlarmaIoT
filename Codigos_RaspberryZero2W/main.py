@@ -38,10 +38,10 @@ sensorsext = {}
 
 # Configuracion Firebase para libreria pyrebase
 config = {
-    "apiKey": "AIzaSyBxdkpiEqvpAjrOlaq0IS1XIi0wPIC7y1c",
-    "authDomain": "alarma-xibernetiq.firebaseapp.com",
-    "databaseURL": "https://alarma-xibernetiq-default-rtdb.firebaseio.com/",
-    "storageBucket": "alarma-xibernetiq.appspot.com"
+  "apiKey": "apiKey",
+  "authDomain": "projectId.firebaseapp.com",
+  "databaseURL": "https://databaseName.firebaseio.com",
+  "storageBucket": "projectId.appspot.com"
 }
 
 # Inicializacion de Firebase para libreria pyrebase
