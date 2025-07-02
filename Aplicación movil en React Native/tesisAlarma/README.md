@@ -2,62 +2,107 @@ This is a new [**React Native**](https://reactnative.dev) project, bootstrapped 
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+> **Nota**: Asegúrate de haber completado las instrucciones de [Configuración del entorno en React Native](https://reactnative.dev/docs/environment-setup) hasta el paso de "Crear una nueva aplicación" antes de continuar.
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Paso 1: Iniciar el servidor Metro
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Primero, necesitas iniciar **Metro**, el _bundler_ de JavaScript que viene _incluido_ con React Native.
+
+Para iniciar Metro, ejecuta el siguiente comando desde la _raíz_ de tu proyecto React Native:
 
 ```bash
-# using npm
+# usando npm
 npm start
 
-# OR using Yarn
+# O usando Yarn
 yarn start
-```
 
-## Step 2: Start your Application
+## Paso 2: Iniciar tu aplicación
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Deja que Metro Bundler se ejecute en su propia terminal. Abre una nueva terminal desde la raíz de tu proyecto React Native. Ejecuta el siguiente comando para iniciar tu aplicación en Android o iO
 
-### For Android
+### Para Android
 
 ```bash
-# using npm
+# usando npm
 npm run android
 
-# OR using Yarn
+# O usando Yarn
 yarn android
 ```
 
-### For iOS
+### Para iOS
 
 ```bash
-# using npm
+# usando npm
 npm run ios
 
-# OR using Yarn
+# O usando Yarn
 yarn ios
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Si todo está configurado correctamente, deberías ver tu nueva aplicación ejecutándose en tu emulador de Android o simulador de iOS en poco tiempo, siempre que hayas configurado bien el emulador/simulador.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+Esta es una forma de ejecutar tu app — también puedes hacerlo directamente desde Android Studio o Xcode, respectivamente.
 
-## Step 3: Modifying your App
+## Paso 3: Ya puedes modificar la apliación
 
-Now that you have successfully run the app, let's modify it.
+Ahora que has ejecutado la aplicación con éxito, vamos a modificarla.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+1. Abre TesisAlarma.tsx que es la ruta principal de la aplicación
+2. Todas las carpetas que se manejan para el desarrollo de la aplicación estan en SRC 
+3. Las pantallas se encuentran en presentation y se encuentran dividas por carpetas
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Paso 4. Debemos configurar las variables de entorno del archivo .env.template
+1. Se debe seguir la plantilla y llenar los datos de nuestro Firebase Realtime Database
+2. El archivo nuevo debe ser nombrado .env
 
-## Congratulations! :tada:
+## Paso 5. Debemos realizar configuraciones adicionales para nuestro proyecto
+1. En la ruta de andriod\app -> se debe el google-services.json ---> que lo obtenemos de firebase al crear una app android en la consola de firebase
+2. Si el nombre que colocamos es diferente al proyecto debemos modificar en el build.gradle que esta en la ruta andriod\app de la siguiete manera 
 
-You've successfully run and modified your React Native App. :partying_face:
+```bash
+    namespace "com.tesisalarma"
+    defaultConfig {
+        applicationId "Alarma.Xibernetiq" // Aquí se coloca el nombre que le hayamos dado
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+    }
+```
+## Paso 6 . Para lograr enviar peticiones HTTP debemos crear un nuevo archivo en android\app\src\main\res
+1. Se debe ir a android\app\src\main\res
+2. Se crea una nueva carpeta llamada xml
+3. Y crear un nuevo archivo llamado --> network_security_config.xml
+4. Colocamos de la siguiente manera
+```bash
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.4.1</domain>
+    </domain-config>
+</network-security-config>
+
+```
+5. Ingresamos a android\app\src\main\AndroidManifest.xml y modificamos de la siguiente manera: 
+
+```bash
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/ic_launcher"
+      android:roundIcon="@mipmap/ic_launcher"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:supportsRtl="true"
+      android:networkSecurityConfig="@xml/network_security_config">
+    <receiver 
+```
+
+## Paso 5. Para generar el bundle de la aplicacion debemos seguir los pasos de la documentacion
+- [Publishing to Google Play Store](https://reactnative.dev/docs/signed-apk-android) - Generar el bundle de la aplicacion
 
 ### Now what?
 
