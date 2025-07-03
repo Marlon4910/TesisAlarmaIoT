@@ -1,5 +1,4 @@
-# ANEXOS 
-
-## El APK de la aplicación se encuentra en la carpeta del mismo nombre
-
-## Para el uso de los codigos primero leer los archivos README.md donde se muestra informacion importante
+# Alarma de Seguridad IoT para Edificaciones Residenciales
+## ANEXOS  
+###  El .APK de la aplicación desarrollada se encuentra en la carpeta del mismo nombre.
+###  Para usar los códigos, lee primero los archivos README.md para obtener información importante.
